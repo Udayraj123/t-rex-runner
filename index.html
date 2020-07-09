@@ -1,1 +1,10 @@
 <script src="./dist/bundle.js"></script>
+<script>
+
+    // this even signifies component loaded state -
+    document.addEventListener("TRexLoaded", function () {
+        const instance = window['mt-widget-components']["Trex"];
+        console.log(window['mt-widget-components']);
+        instance.render(document.body, "offline");
+    });
+</script>

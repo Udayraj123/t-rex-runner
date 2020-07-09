@@ -24,14 +24,19 @@ class MtTrexRunner {
     render(container, id, props = {}) {
         container.innerHTML = getInnerHtml(id);
         require("./index.css");
-        require("./index.js");
+        require("./app.js");
         new Runner(container, '.interstitial-wrapper');
     }
 }
 const instance = new MtTrexRunner();
 
 document.addEventListener("DOMContentLoaded", function(){
-    instance.render(document.body,"offline");
+    const event = document.createEvent("HTMLEvents");
+    event.initEvent("TRexLoaded", true, true);
+    event.eventName = "TRexLoaded";
+    window["mt-widget-components"]={}
+    window["mt-widget-components"]["Trex"] = instance;
+    document.dispatchEvent(event);
 });
 
 module.exports = instance;

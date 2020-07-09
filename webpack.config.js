@@ -5,6 +5,10 @@ module.exports={
         filename: 'bundle.js'
     },
     devtool: 'sourcemap-inline',
+    devServer:{
+        writeToDisk: true,
+        port: 8085
+    },
     module: {
         rules: [
             // file-loader to make images importable
